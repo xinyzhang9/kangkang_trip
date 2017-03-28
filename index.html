@@ -90,8 +90,53 @@
 						$images = $pxs_slider_wrapper.find('img');
 
 						$images.each(function(){
-							
-						})
+							var $img = $(this);
+							$('<img/>').load(function(){
+								++loaded;
+								if(loaded === total_elems * 2){
+									$pxs_loading.hide();
+									$pxs_slider_wrapper.show();
+
+									// one images width
+									var one_image_w = $pxs_slider.find('img:first').width();
+
+									// set the width of slider, of each one of its elements and of the navigation buttons
+									setWidths($pxs_slider, $elems, total_elems, $pxs_bg1, $pxs_bg2, $pxs_bg3, one_image_w, $pxs_next, $pxs_prev);
+									// set the width of the thumbs and spread them evenly
+									$pxs_thumbnails.css({
+										'width': one_image_w + 'px',
+										'margin-left': -one_image_w/2 + 'px'
+									});
+									var spaces = one_image_w/(total_elems+1);
+									$thumbs.each(function(i){
+										var $this = $(this);
+										var left = spaces * (i+1) - $this.width()/2;
+										$this.css('left',left + 'px');
+
+										if(o.thumbRotation){
+											var angle = Math.floor(Math.random()*41)-20;
+											$this.css({
+												'-moz-transform': 'rotate('+angle+'deg)',
+												'-webkit-transform': 'rotate('+angle+'deg)',
+												'transform': 'rotate('+angle+'deg)'
+											});
+										}
+										// hovering the thumbs animates them up and down
+										$this.bind('mouseenter',function(){
+											$(this).stop().animate({top:'-10px'},100);
+										}).bind('mouseleave',function(){
+											$(this).stop()animate({top:'0px'},100);
+										});
+									});
+
+									// make the first thumb selected
+									highlight($thumbs.eq(0));
+
+									// slide when clicking the navigation buttons
+									
+								}
+							}) // img.load
+						})// images.each
 
 
 					});
