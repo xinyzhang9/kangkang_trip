@@ -180,14 +180,74 @@
 									}
 
 									// resizing window
-									
+									$(window).resize(function(){
+										w_w = $(window).width();
+										setWidths($pxs_slider, $elems, total_elems, $pxs_bg1, $pxs_bg2, $pxs_bg3, one_image_w, $pxs_next, $pxs_prev);
+										slide(current, $pxs_slider, $pxs_bg3, $pxs_bg2, $pxs_bg1, 1, o.easing, o.easingBg);
+									});
 								}
-							}) // img.load
-						})// images.each
-
+							}).error(function(){
+								alert('here')
+							}).attr('src',$img.attr('src')); // img.load
+						});// images.each
 
 					});
+				};
+
+				// the current windows width
+				var w_w = $(window).width();
+
+				// utility functions definition
+				var slide = function(current, $pxs_slider,$pxs_bg3, $pxs_bg2, $pxs_bg1, speed, easing, easingBg){
+					var slide_to = parseInt(-w_w * current);
+					// differentiate slide portions for different bg
+					$pxs_slider.stop().animate({
+						left: slide_to + 'px'
+					},speed,easing);
+					$pxs_bg3.stop().animate({
+						left: slide_to/2 + 'px'
+					},speed,easingBg);
+					$pxs_bg2.stop().animate({
+						left: slide_to/4 + 'px'
+					},speed,easingBg);
+					$pxs_bg1.stop().animate({
+						left: slide_to/8 + 'px'
+					},speed,easingBg);
 				}
+
+				var highlight = function($elem){
+					$elem.siblings().removeClass('selected');
+					$elem.addClass('selected');
+				}
+
+				var setWidths = function($pxs_slider, $elems, total_elems, $pxs_bg1, $pxs_bg2, $pxs_bg3, one_image_w, $pxs_next, $pxs_prev){
+					// width of the slider = windows width * number of elements in the slider
+					var pxs_slider_w = w_w * total_elems;
+					$pxs_slider.width(pxs_slider_w + 'px');
+					$elems.width(w_w +'px');
+					// set the width of each bg image div
+					$pxs_bg1.width(pxs_slider_w + 'px');
+					$pxs_bg2.width(pxs_slider_w + 'px');
+					$pxs_bg3.width(pxs_slider_w + 'px');
+
+					// navigation next and prev location
+					var position_nav = w_w/2 - one_image_w/2 + 3;
+					$pxs_next.css('right',position_nav + 'px');
+					$pxs_prev.css('left',position_nav + 'px');
+				}
+
+				// default setting
+				$.fn.parallaxSlider.defaults = {
+					auto: 0,
+					speed: 1000,
+					easing: 'jswing',
+					easingBg: 'jswing',
+					circular: true,
+					thumbRotation: true
+				};
+
+
+
 			})(jQuery)
 		</script>
        	
