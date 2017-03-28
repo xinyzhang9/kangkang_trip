@@ -133,6 +133,33 @@
 									highlight($thumbs.eq(0));
 
 									// slide when clicking the navigation buttons
+									$pxs_next.bind('click',function(){
+										++current;
+										if(current >= total_elems)
+											if(o.circular){
+												current = 0;
+											}
+										else{
+											--curent;
+											return false;
+										}
+										highlight($thumbs.eq(curent));
+										slide(current, $pxs_slider, $pxs_bg3, $pxs_bg2, $pxs_bg1, o.speed, o.easing, o.easingBg);
+									});
+									$pxs_prev.bind('click',function(){
+										--current;
+										if(current < 0)
+											if(o.circular){
+												current = total_elems - 1;
+											}
+										else{
+											++curent;
+											return false;
+										}
+										highlight($thumbs.eq(curent));
+										slide(current, $pxs_slider, $pxs_bg3, $pxs_bg2, $pxs_bg1, o.speed, o.easing, o.easingBg);
+									});
+									// clicking a thumb will slide to the respective image
 									
 								}
 							}) // img.load
