@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Kangkang's Gallary</title>
+        <title>Kangkang's trip</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <!--         <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"> -->
 
- 		<meta name="description" content="Kangkang's gallary" />
+ 		<meta name="description" content="Kangkang's trip in US" />
         <link rel="icon" href="images/flower_icon.ico">
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" href="css/init.css">
@@ -32,24 +32,24 @@
 			<div class="pxs_loading">Loading...</div>
 			<div class="pxs_slider_wrapper">
 				<ul class="pxs_slider">
-					<li><img src="images/long1.jpg" alt="First Image" /></li>
-					<li><img src="images/long2.jpg" alt="Second Image" /></li>
-					<li><img src="images/long3.jpg" alt="Third Image" /></li>
-					<li><img src="images/long4.jpg" alt="Forth Image" /></li>
-					<li><img src="images/long5.jpg" alt="Fifth Image" /></li>
-					<li><img src="images/long6.jpg" alt="Sixth Image" /></li>
+					<li><img src="images/long1.jpg" alt="img1" /></li>
+					<li><img src="images/long2.jpg" alt="img2" /></li>
+					<li><img src="images/long3.jpg" alt="img3" /></li>
+					<li><img src="images/long4.jpg" alt="img4" /></li>
+					<li><img src="images/long5.jpg" alt="img5" /></li>
+					<li><img src="images/long6.jpg" alt="img6" /></li>
 				</ul>
 				<div class="pxs_navigation">
 					<span class="pxs_next"></span>
 					<span class="pxs_prev"></span>
 				</div>
 				<ul class="pxs_thumbnails">
-					<li><img src="images/thumbs/t1.jpg" alt="First Image" /></li>
-					<li><img src="images/thumbs/t2.jpg" alt="Second Image" /></li>
-					<li><img src="images/thumbs/t3.jpg" alt="Third Image" /></li>
-					<li><img src="images/thumbs/t4.jpg" alt="Forth Image" /></li>
-					<li><img src="images/thumbs/t5.jpg" alt="Fifth Image" /></li>
-					<li><img src="images/thumbs/t6.jpg" alt="Sixth Image" /></li>
+					<li><img src="images/thumbs/t1.jpg" alt="img1" /></li>
+					<li><img src="images/thumbs/t2.jpg" alt="img2" /></li>
+					<li><img src="images/thumbs/t3.jpg" alt="img3" /></li>
+					<li><img src="images/thumbs/t4.jpg" alt="img4" /></li>
+					<li><img src="images/thumbs/t5.jpg" alt="img5" /></li>
+					<li><img src="images/thumbs/t6.jpg" alt="img6" /></li>
 				</ul>
 			</div>
 		</div>
@@ -245,7 +245,6 @@
 				// display footer text
 				var displayText = function(current){
 					var num = (current+6) % 6;
-					console.log(num);
 					var footer_messages = $('.footer-banner');
 					footer_messages.text(poems[num]);
 				}
@@ -275,7 +274,6 @@
        	<script type="text/javascript">
        		$(function(){
        			var $pxs_container = $('#pxs_container');
-
        			$pxs_container.parallaxSlider();
        		});
        	</script>
