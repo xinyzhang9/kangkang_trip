@@ -1,3 +1,8 @@
+@font-face{
+  font-family: myFont;
+  src: url(gb.ttf);
+}
+
 *{
 	margin:0;
 	padding:0;
@@ -178,4 +183,6 @@ ul.pxs_thumbnails li.selected img{
 .footer-banner{
 	text-align: center;
 	color: white;
+	font-family: myFont;
+	font-size: 18px;
 }
