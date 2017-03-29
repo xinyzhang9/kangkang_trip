@@ -1,6 +1,6 @@
 @font-face{
   font-family: myFont;
-  src: url(gb.ttf);
+  src: url(./gb.ttf);
 }
 
 *{
